@@ -8,7 +8,9 @@ class News(models.Model):
     updated_at = models.DateTimeField(auto_now=True,verbose_name='Обновленно')
     photo = models.ImageField(upload_to='photos/%Y/%m/%d/',verbose_name='Фото',blank=True)
     is_published = models.BooleanField(default=True,verbose_name='Обновленно?')
-    category = models.ForeignKey('Category', on_delete=models.PROTECT,null=True,verbose_name='Категория')#models.PROTECT обеспечивает защиту от удаления
+    category = models.ForeignKey('Category', on_delete=models.PROTECT,null=True,verbose_name='Категория ')#models.PROTECT обеспечивает защиту от удаления
+
+
 
     def __str__(self):
         return self.title  # для вывода факьтческого названия объекта в консоль  вместо Object

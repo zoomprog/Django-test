@@ -32,12 +32,20 @@
           <div class="coll-md-12">
             {%for item in news %}
             <div class="card mb-3">
-              <h5 class="card-header">Категория: {{ item.category }} </h5>
+              <h5 class="card-header">
+                Категория: {{ item.category }} </h5>
               <div class="card-body">
-                <h5 class="card-title">{{ item.title }}</h5>
-                <p class="card-text">{{ item.content }}</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
+                <div class="media">
+                  {% if item.photo %}
+                    <img src="{{ item.photo.url }}" width="350" height="350" class="mr-3">#изображение из бд вывести на экран с новостью
+                  {% else %}
+                    <img src="https://avatarko.ru/img/kartinka/33/multfilm_lyagushka_32117.jpg" width="350" height="350" class="mr-3">#изображение по умолчанию
+                  {% endif %}
+                  <div class="media-body">
+                    <h5 class="card-title ">{{ item.title }}</h5>
+                    <p class="card-text">{{ item.content }}</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                  </div>
               <div class="card-footer text-muted">
                 {{ item.created_at|date:"Y-m-d H:i:s" }}
               </div>
